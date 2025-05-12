@@ -161,11 +161,4 @@ gui:Destroy()
 -- ↓ Continue your script here ↓
 
 -- ends for the second loader.
-    end
-end)
--- first Loader.
-    else
-        ErrorLabel.Visible = true
-        task.delay(2.5, function() ErrorLabel.Visible = false end)
-    end
-end)
+
