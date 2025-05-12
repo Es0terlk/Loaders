@@ -110,11 +110,20 @@ CS2button.MouseButton1Click:Connect(function() selected = "cs2" CS2button.Backgr
 CSGO_Button.MouseButton1Click:Connect(function() selected = "csgo" CSGO_Button.BackgroundColor3 = Color3.new(0.0470588, 0.0470588, 0.0470588) CS2button.BackgroundColor3 = Color3.new(0.0823529,0.0823529,0.0823529)  end)
 Exit_Button.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
 Load_Button.MouseButton1Click:Connect(function()
-    if not selected then warn("Please select CS2 or CSGO before loading.") return end
-    ScreenGui:Destroy()
+    if not selected then
+        warn("Please select CS2 or CSGO before loading.")
+        return
+    end
+
+    ScreenGui:Destroy()          -- close the picker
+
     if selected == "cs2" then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+        loadstring(game:HttpGet(
+            "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"
+        ))()
+        return                   -- <‑‑ stops here, CS‑GO part is never reached
     elseif selected == "csgo" then
+
 local player=game.Players.LocalPlayer;local gui=Instance.new("ScreenGui");local Frame=Instance.new("Frame");local Frame_2=Instance.new("Frame");local ImageLabel=Instance.new("ImageLabel");local Up_Gradient=Instance.new("Frame");local Down_Gradient=Instance.new("Frame");local Blackoutline=Instance.new("Frame");local Blackline=Instance.new("Frame");local Blackline_2=Instance.new("Frame");local Blackline_3=Instance.new("Frame");local Blackline_4=Instance.new("Frame");local _60line=Instance.new("Frame");local _60line_2=Instance.new("Frame");local _60line_3=Instance.new("Frame");local _60line_4=Instance.new("Frame");local _3thick=Instance.new("Frame");local _3thick_2=Instance.new("Frame");local _3thick_3=Instance.new("Frame");local _3thick_4=Instance.new("Frame");local out60=Instance.new("Frame");local out60_2=Instance.new("Frame");local out60_3=Instance.new("Frame");local out60_4=Instance.new("Frame");local out60_5=Instance.new("Frame");local outline=Instance.new("Frame");local outline_2=Instance.new("Frame");local outline_3=Instance.new("Frame");local outline_4=Instance.new("Frame");local outline_5=Instance.new("Frame");local DragBar=Instance.new("Frame");local loaderLabel=Instance.new("TextLabel")
 gui.Name="LoaderGui";gui.Parent=player:WaitForChild("PlayerGui");gui.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
 Frame.Parent=gui;Frame.BackgroundColor3=Color3.new(1,1,1);Frame.BackgroundTransparency=1;Frame.BorderSizePixel=0;Frame.Position=UDim2.new(0,0,0,0);Frame.Size=UDim2.new(1,0,1,0)
@@ -159,6 +168,12 @@ animatePhase(loaderLabel, "Overriding Detection", 5)
 animatePhase(loaderLabel, "Injecting", 5)
 gui:Destroy()
 -- ↓ Continue your script here ↓
+
+
+
+
+
+
 
 -- ends for the second loader.
     end
